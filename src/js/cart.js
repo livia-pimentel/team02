@@ -24,7 +24,7 @@ function cartItemTemplate(item) {
 </li>`;
 return newItem;
   }
-  return []
+  return ""
   
 }
 
