@@ -7,6 +7,7 @@ function renderCartContents() {
 }
 
 function cartItemTemplate(item) {
+  if(item!=null){
   const newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
     <img
@@ -21,8 +22,10 @@ function cartItemTemplate(item) {
   <p class="cart-card__quantity">qty: 1</p>
   <p class="cart-card__price">$${item.FinalPrice}</p>
 </li>`;
-
-  return newItem;
+return newItem;
+  }
+  return []
+  
 }
 
 renderCartContents();
