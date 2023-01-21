@@ -1,3 +1,5 @@
+import { setLocalStorage } from "./utils.mjs";
+
 export default class ProductDetails {
     constructor(productId, dataSource) {
       this.productId = productId;
@@ -11,24 +13,24 @@ export default class ProductDetails {
     }
     addtoCart() {
         setLocalStorage("so-cart", this.product);
+        alert("Product added to cart!");
     }
     renderProductDetails(selector) {
         const element = document.querySelector(selector);
-        element.insertAdjacentHTML(
-          "afterBegin", `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
-          <h2 class="divider">${product.NameWithoutBrand}</h2>
+        element.insertAdjacentHTML("afterBegin", `<section class="product-detail"> <h3>${this.product.Brand.Name}</h3>
+          <h2 class="divider">${this.product.NameWithoutBrand}</h2>
           <img
             class="divider"
-            src="${product.Image}"
-            alt="${product.NameWithoutBrand}"
+            src="${this.product.Image}"
+            alt="${this.product.NameWithoutBrand}"
           />
-          <p class="product-card__price">$${product.FinalPrice}</p>
-          <p class="product__color">${product.Colors[0].ColorName}</p>
+          <p class="product-card__price">$${this.product.FinalPrice}</p>
+          <p class="product__color">${this.product.Colors[0].ColorName}</p>
           <p class="product__description">
-          ${product.DescriptionHtmlSimple}
+          ${this.product.DescriptionHtmlSimple}
           </p>
           <div class="product-detail__add">
-            <button id="addToCart" data-id="${product.Id}">Add to Cart</button>
+            <button id="addToCart" data-id="${this.product.Id}">Add to Cart</button>
           </div></section>`);
     }
   }
