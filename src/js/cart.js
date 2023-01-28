@@ -2,7 +2,10 @@ import { getLocalStorage } from "./utils.mjs";
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
-  const htmlItems = cartItemTemplate(cartItems)
+  if (cartItems != null){
+    let hide = document.querySelector('.hide').style.display = 'block';
+  }
+  const htmlItems = cartItemTemplate(cartItems);
   document.querySelector(".product-list").innerHTML = htmlItems;
 }
 
