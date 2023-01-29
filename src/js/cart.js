@@ -25,6 +25,7 @@ function cartItemTemplate(item) {
   <p class="cart-card__quantity">qty: 1</p>
   <p class="cart-card__price">$${item.FinalPrice}</p>
 </li>`;
+const total = document.querySelector('.cart-total').innerHTML += item.FinalPrice //Need to correct when there are more items in the cart make a sum
 return newItem;
   }
   return ""
