@@ -30,3 +30,27 @@ export function getParam(param) {
   const product = urlParams.get(param);
   return product
 }
+
+export function renderWithTemplate(template, parentElement, data, callback) {
+  parentElement.insertAdjacentHTML("afterbegin", template);
+  if(callback) {
+      callback(data);
+  }
+}
+
+async function loadTemplate(path){
+  let response = await fetch(path);
+  let result = await response.text();
+  return result
+}
+
+export async function loadHeaderFooter(){
+  let header = await loadTemplate("../public/partials/header.html");
+  let footer = await loadTemplate("../public/partials/footer.html");
+  let domHeader = document.querySelector('#main-header');
+  let domFooter = document.querySelector('#main-footer');
+  renderWithTemplate(header, domHeader);
+  renderWithTemplate(footer, domFooter);
+}
+
+
