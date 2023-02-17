@@ -3,11 +3,17 @@ import {loadHeaderFooter} from "./utils.mjs";
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
-  if (cartItems != null){
-    let hide = document.querySelector('.hide').style.display = 'block';
-  }
-  const htmlItems = cartItemTemplate(cartItems);
-  document.querySelector(".product-list").innerHTML = htmlItems;
+  const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+  let totalValue = 0;
+  cartItems.map((item) => totalValue += item.FinalPrice);
+  document.querySelector(".product-list").innerHTML = htmlItems.join("");
+  document.querySelector(".cart-total").innerHTML = `Total: $${totalValue}`;
+
+  // const cartItems = getLocalStorage("so-cart");
+  // const htmlItems = cartItemTemplate(cartItems);
+  // document.querySelector(".product-list").innerHTML = htmlItems;
+
+
 }
 
 function cartItemTemplate(item) {
