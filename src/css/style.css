@@ -206,6 +206,11 @@ button {
   grid-column: 3;
 }
 
+.delete-item-cart{
+  cursor: pointer;
+  font-weight: 600;
+}
+
 .hide{
   display: none;
 }
