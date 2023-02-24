@@ -95,13 +95,14 @@ export default class CheckoutProcess {
       console.log(res);
     } catch (err) {
       //removeAllAlerts();
+
       const error = err;
       console.log(error);
-     
       //let dispMsg = ""
       for (let msg in error.message){
         //dispMsg += error.message[msg] + '\n'
         alertMessage(error.message[msg])
+        
       }
       //alertMessage(dispMsg)
       console.log(err);
