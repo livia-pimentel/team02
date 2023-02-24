@@ -1,4 +1,4 @@
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
 
 const services = new ExternalServices();
@@ -85,10 +85,22 @@ export default class CheckoutProcess {
     json.items = packageItems(this.list);
     console.log(json);
     try {
+      if (!json){
+        throw new Error('Bad request')
+      }
+      const response = 'Information has been sent';
       const res = await services.checkout(json);
+      setLocalStorage("so-cart", [])
+      location.assign("/checkout/success.html")
       console.log(res);
     } catch (err) {
-      console.log(err);
+      const error = err;
+      console.log(error);
+      let dispMsg = ""
+      for (let msg in error.message){
+        dispMsg += error.message[msg] + '\n'
+      }
+      alert(dispMsg)
     }
   }
 }
