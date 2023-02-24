@@ -1,4 +1,4 @@
-import { loadHeaderFooter } from "./utils.mjs";
+import { loadHeaderFooter, removeAllAlerts } from "./utils.mjs";
 import CheckoutProcess from "./CheckoutProcess.mjs";
 
 loadHeaderFooter();
@@ -15,6 +15,7 @@ document.querySelector("#checkoutSubmit").addEventListener("click", (e) => {
   var myForm = document.forms[0];
     var chk_status = myForm.checkValidity();
     myForm.reportValidity();
+    removeAllAlerts()
     if(chk_status){
       myCheckout.checkout();
     }
