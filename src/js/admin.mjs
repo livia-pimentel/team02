@@ -1,5 +1,5 @@
 class Admin{
-    constructor()
+    //constructor()
 
     showLogin(){
         const showForm = document.querySelector('.login')
@@ -11,11 +11,20 @@ class Admin{
         <div>
             <label for="password">password</label>
             <input type="password" id="password">
-        </div>
-        <button id="loginSubmit" type="submit">Enter</button>
-    </form>`    
+        </div>`+
+        createSubmitButton()
+    `</form>`    
     showForm.insertAdjacentHTML("afterBegin", htmlForm)
-    }
     
-    // document.querySelector('#loginSubmit').addEventListener()
+    }
+    //document.querySelector('#loginSubmit').addEventListener()
+    
 }
+
+function createSubmitButton(){
+    //const element = document.createElement("button")
+
+    const buttonSumbit = `<button id="loginSubmit" type="submit">Enter</button>`;
+    return buttonSumbit
+}
+
