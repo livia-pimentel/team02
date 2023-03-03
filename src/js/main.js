@@ -11,4 +11,5 @@ import {loadHeaderFooter} from "./utils.mjs";
 // productList.init();
 // console.log(productList);
 loadHeaderFooter();
-Admin();
+const admin = new Admin();
+admin.showLogin();
