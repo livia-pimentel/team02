@@ -1,6 +1,5 @@
 // import ExternalServices from "./ExternalServices.mjs";
 // import ProductList from "./ProductList.mjs";
-import { Admin } from "./Admin.mjs";
 import {loadHeaderFooter} from "./utils.mjs";
 
 
@@ -11,5 +10,4 @@ import {loadHeaderFooter} from "./utils.mjs";
 // productList.init();
 // console.log(productList);
 loadHeaderFooter();
-const admin = new Admin();
-admin.showLogin();
+
