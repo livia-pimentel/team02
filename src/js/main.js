@@ -1,8 +1,6 @@
 // import ExternalServices from "./ExternalServices.mjs";
 // import ProductList from "./ProductList.mjs";
-import {loadHeaderFooter} from "./utils.mjs";
-
-
+import { loadHeaderFooter } from "./utils.mjs";
 
 // const dataSource = new ExternalServices("tents");
 // const element = document.querySelector(".product-list")
@@ -10,4 +8,3 @@ import {loadHeaderFooter} from "./utils.mjs";
 // productList.init();
 // console.log(productList);
 loadHeaderFooter();
-
